@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div clas="jumbrotron">
+    <p>Let's see how you performed!</p>
+    {% if report %}
+    <p>Your username passed the 3 requirements!</p>
+    {% else %}
+    <p>Oh no! It looks like you had issues with your username.</p>
+    <p>Here are the requirements that you failed:</p>
+    <ul>
+        {% if not upper_case %}
+        <li>You did not use an upper case letter</li>
+        {% endif %}
+        {% if not lower_case %}
+        <li>You did not use a lower case letter</li>
+        {% endif %}
+        {% if not end_num %}
+            <li>You did not end with a number</li>
+        {% endif %}
+    </ul>
+    {% endif %}
+</div>
+{% endblock %}
